@@ -17,7 +17,10 @@ query {
         id,
         title,
         published,
-        author
+        author {
+            id,
+            name
+        }
     }
 }
 `

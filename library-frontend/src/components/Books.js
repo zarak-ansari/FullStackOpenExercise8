@@ -8,7 +8,7 @@ const Books = (props) => {
     return null
   }
 
-  if(result.loading){
+  if (result.loading) {
     return (
       <div>
         list of books is still loading...
@@ -17,7 +17,6 @@ const Books = (props) => {
   }
 
   const books = result.data.allBooks
-  
   return (
     <div>
       <h2>books</h2>
@@ -25,14 +24,14 @@ const Books = (props) => {
       <table>
         <tbody>
           <tr>
-            <th></th>
+            <th>title</th>
             <th>author</th>
             <th>published</th>
           </tr>
           {books.map((a) => (
-            <tr key={a.title}>
+            <tr key={a.id}>
               <td>{a.title}</td>
-              <td>{a.author}</td>
+              <td>{a.author.name}</td>
               <td>{a.published}</td>
             </tr>
           ))}
