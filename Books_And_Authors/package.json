@@ -1,0 +1,18 @@
+{
+  "name": "books_and_authors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.9.1",
+    "dotenv": "^16.3.1",
+    "graphql": "^16.8.0",
+    "mongoose": "^7.5.0",
+    "mongoose-unique-validator": "^4.0.0"
+  }
+}
