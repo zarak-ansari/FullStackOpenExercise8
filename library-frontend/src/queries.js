@@ -37,7 +37,6 @@ mutation addBook(
             id,
             title,
             published,
-            author,
             genres
        }
     }
