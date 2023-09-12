@@ -58,6 +58,10 @@ const typeDefs = `
       password: String!
     ): Token
   }
+
+  type Subscription {
+    addBook: Book!
+  }
 `
 
 module.exports = typeDefs
