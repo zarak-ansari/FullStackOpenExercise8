@@ -4,6 +4,8 @@ import Books from './components/Books'
 import NewBook from './components/NewBook'
 import LoginForm from './components/LoginForm'
 import Recommend from './components/Recommend'
+import { useSubscription } from '@apollo/client'
+import { BOOK_ADDED } from './queries'
 
 const App = () => {
   const [page, setPage] = useState('authors')
@@ -14,6 +16,12 @@ const App = () => {
     if(tokenInLocalStorage) setToken(tokenInLocalStorage)
   }, [])
   
+  useSubscription(BOOK_ADDED, {
+    onData: ({ data }) => {
+      window.alert(`New book added "${data.data.bookAdded.title}"`)
+    }
+  })
+
   const logout = () => {
     setToken(null)
     localStorage.removeItem('library-jwt-token')

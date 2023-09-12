@@ -1,11 +1,18 @@
 import { useQuery } from "@apollo/client"
 import { ALL_AUTHORS } from "../queries"
 import AuthorBirthYearForm from "./AuthorBirthYearForm"
+import { useEffect, useState } from "react"
 
 const Authors = (props) => {
   
   const result = useQuery(ALL_AUTHORS)
+  const [authors, setAuthors] = useState([])
 
+  useEffect(() => {
+    if(result.data){
+      setAuthors(result.data.allAuthors)
+    }
+  }, [result.data])
 
   if (!props.show) {
     return null
@@ -15,7 +22,7 @@ const Authors = (props) => {
     return <div>loading list of authors</div>
   }
 
-  const authors = result.data.allAuthors
+  // const authors = result.data.allAuthors
   
   return (
     <div>

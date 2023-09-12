@@ -9,8 +9,8 @@ const Recommend = (props) => {
     const [getBooks, booksResult] = useLazyQuery(ALL_BOOKS) 
     
     useEffect(() => {
-        if(currentUserQuery.data){
-            const genre = currentUserQuery.data.me.favoriteGenre
+        if(currentUserQuery.data && currentUserQuery.data.me){
+            const genre = currentUserQuery.data.me.favoriteGenre 
             setFavoriteGenre(genre)
             getBooks({variables:{genre}})
         }
