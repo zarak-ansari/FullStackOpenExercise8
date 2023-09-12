@@ -60,7 +60,7 @@ const typeDefs = `
   }
 
   type Subscription {
-    addBook: Book!
+    bookAdded: Book!
   }
 `
 
