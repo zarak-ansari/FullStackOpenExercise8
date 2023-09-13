@@ -42,6 +42,15 @@ const Books = (props) => {
     )
   }
 
+  if(result.error) {
+    return(
+      <div>
+        error loading list of books
+      </div>
+    )
+  }
+
+  
   return (
     <div>
       <h2>books</h2>
