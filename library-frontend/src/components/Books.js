@@ -16,7 +16,9 @@ const Books = (props) => {
       setBooks(result.data.allBooks)
       if(chosenGenre === ALL_GENRE_STRING){
         let genres = [ALL_GENRE_STRING]
-        result.data.allBooks.forEach(book => genres = genres.concat(book.genres))
+        result.data.allBooks.forEach(book => {
+          genres = genres.concat(book.genres)
+        })
         setAllGenres([...new Set(genres)])
       }
     }
