@@ -62,7 +62,8 @@ const resolvers = {
         }
 
         const bookResponse = await newBook.populate('author')
-        
+        author.books = author.books.concat(bookResponse._id)
+        await author.save()
         pubsub.publish('BOOK_ADDED', { bookAdded: bookResponse })
         
         return bookResponse
@@ -115,9 +116,11 @@ const resolvers = {
   
     Author: {
       bookCount: async (root) => {
-        // woefully inefficient. look into mongoose functions to make it easier. or give a ref of books to author
-        const books = await Book.find({}).populate('author', {name:1})
-        return books.filter(book => book.author.name === root.name).length
+        if(root.books){
+          return root.books.length
+        } else {
+          return 0
+        }
       }
     },
   }
